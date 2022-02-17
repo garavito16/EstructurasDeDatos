@@ -14,7 +14,16 @@ public class Aplicacion {
 		listaNumeros.agregaEnPosicion(nodo2, 1);
 		listaNumeros.agregaEnPosicion(nodo3, 1);
 		
-		//listaNumeros.eliminaEnPosicion(1);
+		listaNumeros.imprimePrincipioFin();
+		System.out.println("");
+		
+		listaNumeros.eliminaEnPosicion(1);
+		listaNumeros.imprimePrincipioFin();
+		System.out.println("");
+		
+		listaNumeros.eliminaEnPosicion(1);
+		listaNumeros.eliminaEnPosicion(0);
+		listaNumeros.eliminaEnPosicion(0);
 		
 		/*NodoDLL nodo2 = new NodoDLL(4);
 		NodoDLL nodo3 = new NodoDLL(25);

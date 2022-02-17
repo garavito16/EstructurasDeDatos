@@ -27,9 +27,13 @@ public class DLL {
 	public void eliminaAlFrente() {
 		if(this.head == null) {
 			System.out.println("La lista esta vacia");
+		} else if (this.length == 1) {
+			this.head = null;
+			this.tail = null;
 		} else {
 			this.head = this.head.getNext();
 			this.head.setPrev(null);
+			this.length--;
 		}
 	}
 	
@@ -48,9 +52,13 @@ public class DLL {
 	public void eliminaAlFinal() {
 		if(this.head == null) {
 			System.out.println("La lista esta vacia");
+		} else if (this.length == 1) {
+			this.head = null;
+			this.tail = null;
 		} else {
 			this.tail = this.tail.getPrev();
 			this.tail.setNext(null);
+			this.length--;
 		}
 	}
 	
@@ -98,6 +106,7 @@ public class DLL {
 					aux2.setPrev(nuevoNodo);
 					nuevoNodo.setNext(aux2);
 					nuevoNodo.setPrev(aux1);
+					this.length++;
 				}			
 			}
 		} else {
@@ -107,12 +116,11 @@ public class DLL {
 	//elimina al frente, elimina en posicion elimina al final
 	
 	public void eliminaEnPosicion(int indice) {
-		if (indice <= this.length) {
-			if (this.head == null) {
+		if (indice < this.length) {
+			if (indice == 0) {
 				eliminaAlFrente();
 			} else {
-				
-				if(indice == this.length) {
+				if(indice == this.length - 1) {
 					eliminaAlFinal();
 				} else {
 					NodoDLL aux1 = this.head;
@@ -126,7 +134,8 @@ public class DLL {
 					}
 					
 					aux1.setNext(aux2.getNext());
-					aux1.setPrev(aux2);
+					aux2.getNext().setPrev(aux1);
+					this.length--;
 				}			
 			}
 		} else {
